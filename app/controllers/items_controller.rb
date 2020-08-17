@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
-  root 'items#index'
-  resourse :items
+  def index
+    
+  end
 end
