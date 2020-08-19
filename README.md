@@ -36,33 +36,30 @@ Things you may want to cover:
 | first_name        | string | null: false |
 | first_name_kana   | string | null: false |
 | family_name_kana  | string | null: false |
-| birth_year        | date   | null: false |
-| birth_month       | date   | null: false |
-| birth_day         | date   | null: false |
+| birthday         | date   | null: false |
 
 ### Association
 - has_many :items
 - has_many :purchase
-- has_one :shipping_address
 
 ## items テーブル
 
-| Column            | Type     | Options     |
-| ------            | ------   | ----------- |
-| name              | string   | null: false |
-| price             | integer  | null: false |
-| text              | text     | null: false |
-| category_id       | integer  | null: false |
-| item_status_id    | integer  | null: false |
-| cost_burden_id    | integer  | null: false |
-| shipping_place_id | integer  | null: false |
-| ship_date_id      | integer  | null: false |
-| user_id           | integer  |             |
+| Column            | Type     | Options           |
+| ------            | ------   | -----------       |
+| name              | string   | null: false       |
+| price             | integer  | null: false       |
+| text              | text     | null: false       |
+| category_id       | integer  | null: false       |
+| item_status_id    | integer  | null: false       |
+| cost_burden_id    | integer  | null: false       |
+| shipping_place_id | integer  | null: false       |
+| ship_date_id      | integer  | null: false       |
+| user_id           | integer  | foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_one_attached :image
-- belongs_to :purchase
+- has_one :purchase
 
 ## image テーブル
 | Column  | Type       | Options          |
@@ -79,10 +76,10 @@ Things you may want to cover:
 |  city            | string  |        null: false |
 |  city_number     | string  |        null: false |
 |  building_name   | string  |   |
-|  user_id         | integer | foreign_key: true  |
+|  purchase_id     | integer | foreign_key: true  |
 
 ### Association
-- belongs_to :user
+- belongs_to :purchase
 
 ## purchase テーブル
 
@@ -94,3 +91,4 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :items
+- has_one :shipping_address
