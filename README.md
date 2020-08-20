@@ -36,11 +36,11 @@ Things you may want to cover:
 | first_name        | string | null: false |
 | first_name_kana   | string | null: false |
 | family_name_kana  | string | null: false |
-| birthday         | date   | null: false |
+| birthday          | date   | null: false |
 
 ### Association
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 ## items テーブル
 
@@ -54,7 +54,7 @@ Things you may want to cover:
 | cost_burden_id    | integer  | null: false       |
 | shipping_place_id | integer  | null: false       |
 | ship_date_id      | integer  | null: false       |
-| user_id           | integer  | foreign_key: true |
+| user_id          | integer  | not:null,foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -70,25 +70,25 @@ Things you may want to cover:
 
 | Column | Type       | Options                   |
 | ------ | ---------- | ----------------          |
-|  postal_code     | integer |        null: false |
-|  phone_number    | integer |        null: false |
-|  prefectures_id  | integer |        null: false |
-|  city            | string  |        null: false |
-|  city_number     | string  |        null: false |
-|  building_name   | string  |   |
-|  purchase_id     | integer | foreign_key: true  |
+|  postal_code   | string  |        null: false |
+|  phone_number  | string  |        null: false |
+|  prefectures_id| integer |        null: false |
+|  city          | string  |        null: false |
+|  city_number   | string  |        null: false |
+|  building_name | string  |   |
+|  purchase_id | integer |  null: false,foreign_key: true  |
 
 ### Association
 - belongs_to :purchase
 
-## purchase テーブル
+## purchases テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-|       user_id      | integer     | foreign_key: true  |
-|       items_id     | integer     | foreign_key: true  |
+|user_id      | integer  | null: false,foreign_key: true  |
+|items_id     | integer  | null: false,foreign_key: true  |
 
 ### Association
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 - has_one :shipping_address
