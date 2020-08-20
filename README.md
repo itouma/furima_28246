@@ -22,3 +22,73 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# テーブル設計
+
+## users テーブル
+
+| Column            | Type   | Options     |
+| --------          | ------ | ----------- |
+| nickname          | string | null: false |
+| email             | string | null: false |
+| password          | string | null: false |
+| family_name       | string | null: false |
+| first_name        | string | null: false |
+| first_name_kana   | string | null: false |
+| family_name_kana  | string | null: false |
+| birthday          | date   | null: false |
+
+### Association
+- has_many :items
+- has_many :purchases
+
+## items テーブル
+
+| Column            | Type     | Options           |
+| ------            | ------   | -----------       |
+| name              | string   | null: false       |
+| price             | integer  | null: false       |
+| text              | text     | null: false       |
+| category_id       | integer  | null: false       |
+| item_status_id    | integer  | null: false       |
+| cost_burden_id    | integer  | null: false       |
+| shipping_place_id | integer  | null: false       |
+| ship_date_id      | integer  | null: false       |
+| user_id          | integer  | not:null,foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_one_attached :image
+- has_one :purchase
+
+## image テーブル
+| Column  | Type       | Options          |
+| ------  | ---------- | ---------------- |
+|  image  | text       |  null: false     |
+
+## shipping_address テーブル
+
+| Column | Type       | Options                   |
+| ------ | ---------- | ----------------          |
+|  postal_code   | string  |        null: false |
+|  phone_number  | string  |        null: false |
+|  prefectures_id| integer |        null: false |
+|  city          | string  |        null: false |
+|  city_number   | string  |        null: false |
+|  building_name | string  |   |
+|  purchase_id | integer |  null: false,foreign_key: true  |
+
+### Association
+- belongs_to :purchase
+
+## purchases テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+|user_id      | integer  | null: false,foreign_key: true  |
+|items_id     | integer  | null: false,foreign_key: true  |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping_address
