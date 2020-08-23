@@ -5,8 +5,8 @@ class Item < ApplicationRecord
 
 
   with_options presence: { message: "can't be blank" }do
-    validates :name
-    validates :text
+    validates :name, length: { maximum: 40 }
+    validates :text, length: { maximum: 1000 }
     validates :price, length: { in: 300..9999999, message: "Out of setting range" }, numericality: { only_integer: true }
     # 全角NG 半角数字のみ?できたか後でチェック
   end

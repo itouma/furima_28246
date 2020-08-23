@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   #半角英数字
-  HIRAGANA_KATAKANA_REGEX = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/.freeze
+  HIRAGANA_KATAKANA_REGEX = /\A(?:\p{Hiragana}|[ァ-ヶー－]|[ー－]|[一-龠々]|[０-９ａ-ｚＡ-Ｚ])+\z/.freeze
   #全角ひらカナ
   KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   #全角カタカナ
