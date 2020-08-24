@@ -52,7 +52,7 @@ Things you may want to cover:
 | category_id       | integer  | null: false       |
 | item_status_id    | integer  | null: false       |
 | cost_burden_id    | integer  | null: false       |
-| shipping_place_id | integer  | null: false       |
+| prefecture_id     | integer  | null: false       |
 | ship_date_id      | integer  | null: false       |
 | user_id          | integer  | not:null,foreign_key: true |
 
