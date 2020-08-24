@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-
+  has_one :purchase
+  
 # PASSWORD_REGEX = [3-9][0-9]{2}|[1-9][0-9]{3,6}.freeze
 #半角英数字
 
