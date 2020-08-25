@@ -17,8 +17,16 @@ class ItemsController < ApplicationController
       
   end
 
+  def updata
+      
+  end
+
   def show
-    
+    @item = Item.find(params[:id])
+  end
+
+  def destroy
+      
   end
 
 
