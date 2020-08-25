@@ -21,7 +21,7 @@ end
 
   #空の投稿を保存できないようにする
   with_options presence: { message: "Select" }do
-    validates :category, :item_status, :cost_burden, :prefecture, :ship_date, presence: true
+    validates :category, :item_status, :cost_burden, :prefecture, :ship_date
   end
   with_options numericality: { other_than: 0 } do
     validates :category_id

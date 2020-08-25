@@ -1,4 +1,4 @@
-class CostBurden < ApplicationRecord
+class CostBurden < ActiveHash::Base
   self.data = [
     { id: 0, name: '--' },
     { id: 2, name: '着払い(購入者負担)' },
