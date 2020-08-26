@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :items
   root to: 'items#index'
-  get 'items/:id', to: 'posts#checked'
+  # get 'items/:id', to: 'posts#checked'
 end
