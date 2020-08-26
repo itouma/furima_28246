@@ -13,9 +13,10 @@ class Item < ApplicationRecord
   # PASSWORD_REGEX = [3-9][0-9]{2}|[1-9][0-9]{3,6}.freeze
   #半角英数字
   with_options presence: { message: "can't be blank" }do
+  validates :image
   validates :name, length: { maximum: 40 }
   validates :text, length: { maximum: 1000 }
-  validates :price, length: { in: 300..9999999, message: "Out of setting range" }, numericality: { only_integer: true }
+  validates :price, numericality: { only_integer: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range" }
   # 全角NG 半角数字のみ?できたか後でチェック
 end
 
@@ -23,7 +24,7 @@ end
   with_options presence: { message: "Select" }do
     validates :category, :item_status, :cost_burden, :prefecture, :ship_date
   end
-  with_options numericality: { other_than: 0 } do
+  with_options numericality: { greater_than: 0 } do
     validates :category_id
     validates :item_status_id
     validates :cost_burden_id

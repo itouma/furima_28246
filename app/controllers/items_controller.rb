@@ -11,7 +11,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # binding.pry imageが別の来てない？user_idも
+    
     if @item.save
+      redirect_to root_path
     else
       render :new
     end
@@ -29,11 +32,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :text, :price,  :category_id, :item_status_id, :cost_burden_id, :prefecture_id, :ship_date_id, :user_id)
+    params.require(:item).permit(:name, :text, :price,  :category_id, :item_status_id, :cost_burden_id, :prefecture_id, :ship_date_id, :image).merge(user_id: current_user.id)
   end
   
-  def message_params
-    params.require(:item).permit(:name, :price, :image).merge(user_id: current_user.id)
-  end
+  # def message_params
+  #   params.require(:item).permit(:name, :price, :image)
+  # end
 
 end
