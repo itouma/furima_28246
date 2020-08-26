@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :show ]
+    before_action :set_item, only: [:show]
+
   def index
     @items = Item.all
     @purchases = Purchase.includes(:purchase)
@@ -33,8 +35,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :text, :price,  :category_id, :item_status_id, :cost_burden_id, :prefecture_id, :ship_date_id, :image).merge(user_id: current_user.id)
   end
   
-  # def message_params
-  #   params.require(:item).permit(:name, :price, :image)
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
 end
