@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one_attached :image
   has_one :purchase
   
@@ -20,11 +20,11 @@ class Item < ApplicationRecord
   # 全角NG 半角数字のみ?できたか後でチェック
 end
 
-  #空の投稿を保存できないようにする
+  #空の投稿を保存できないようにする 数字のみ
   with_options presence: { message: "Select" }do
     validates :category, :item_status, :cost_burden, :prefecture, :ship_date
   end
-  with_options numericality: { greater_than: 0 } do
+  with_options numericality: { greater_than: 0 ,message: "Select"} do
     validates :category_id
     validates :item_status_id
     validates :cost_burden_id
