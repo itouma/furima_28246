@@ -131,7 +131,6 @@
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" if item.image.attached?%>
             
-            <%#写真ないと表示できないようにしたい、今はエラー画面出るので画像したら変更すること%>
             <% if item.purchase.present?%>
               <div class='sold-out'>
                 <span>Sold Out!!</span>
