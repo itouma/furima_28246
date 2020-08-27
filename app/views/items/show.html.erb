@@ -44,23 +44,26 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.category_id %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.item_status_id %></td>
+          <td class="detail-value"><%= @item.item_status.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.cost_burden_id %></td>
+          <td class="detail-value"><%= @item.cost_burden.name %></td>
+
         </tr>
+<%# 後でカラム名変更すること、アクティブハッシュで都道府県を他でも使うから prefecture に%>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.shipping_place_id %></td>
+          <td class="detail-value"><%= @item.prefecture.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @item.ship_date_id %></td>
+          <td class="detail-value"><%= @item.ship_date.name %></td>
+
         </tr>
       </tbody>
     </table>
