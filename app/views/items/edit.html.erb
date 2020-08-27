@@ -9,7 +9,7 @@ app/assets/stylesheets/items/new.css %>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model:@item, method: :patch, local: true do |f| %>
-
+    <% binding.pry %>
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 出品画像 %>
@@ -140,8 +140,8 @@ app/assets/stylesheets/items/new.css %>
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "変更する" , class:"sell-btn", id:"submit"%>
-      <%=link_to 'もどる', item_path(@item.id), class:"back-btn" %>
+      <%= f.submit "変更する" , class:"sell-btn"%>
+      <%= link_to 'もどる', item_path(@item.id), class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
