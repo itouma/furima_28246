@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :items
   root to: 'items#index'
   # get 'items/:id', to: 'posts#checked'
+  resources :orders, only:[:index, :create]
 end
