@@ -1,6 +1,7 @@
 class Purchase < ApplicationRecord
   belongs_to :item
   belongs_to :user
+  has_one :shipping_address
   validates :name, :price, presence: true, unless: :was_attached?
 
   validates :user_id,  presence:true,numericality: { only_integer: true }
