@@ -1,6 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey(// テスト公開鍵);
-  
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -22,10 +21,10 @@ const pay = () => {
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
 
-        document.getElementById("number").removeAttribute("name");
-        document.getElementById("cvc").removeAttribute("name");
-        document.getElementById("exp_month").removeAttribute("name");
-        document.getElementById("exp_year").removeAttribute("name");
+        document.getElementById("card-number").removeAttribute("name");
+        document.getElementById("card-cvc").removeAttribute("name");
+        document.getElementById("card-exp-month").removeAttribute("name");
+        document.getElementById("card-exp-year").removeAttribute("name");
 
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
@@ -35,31 +34,4 @@ const pay = () => {
   });
 };
 
-
-window.addEventListener("Load",pay);
-
-
-// <%= form_with  url: orders_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
-//   <div class='form-wrap'>
-//     <%= f.label :price, "金額" %>
-//     <%= f.text_field :price, class:"price", placeholder:"例)2000" %>
-//   </div>
-//   <div class='form-wrap'>
-//     <%= f.label :number,  "カード番号" %>
-//     <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
-//   </div>
-//   <div class='form-wrap'>
-//     <%= f.label :cvc ,"ＣＶＣ" %>
-//     <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"3" %>
-//   </div>
-//   <div class='form-wrap'>
-//     <p>有効期限</p>
-//     <div class='input-expiration-date-wrap'>
-//       <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
-//       <p>月</p>
-//       <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
-//       <p>年</p>
-//     </div>
-//   </div>
-//   <%= f.submit "購入" ,class:"button" %>
-// <% end %>
+window.addEventListener("load", pay);
