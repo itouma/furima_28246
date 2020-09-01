@@ -1,0 +1,29 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+
+       nickname: ニックネーム
+       can't be blank: 必須項目です
+       family_name: 姓
+       first_name: 名
+       family_name_kana: 姓カナ
+       first_name_kana: 名カナ
+       birthday: 生年月日
+
+      CreateShippingAddresses:
+       postal_code: 郵便番号
+       phone_number: 電話番号
+       prefecture_id: 都道府県
+       city: 市区町村 
+       city_number,default: 番地
+     item:
+       image: 画像
+       name: 商品名
+       price: 価格
+       text: 説明
+       category: カテゴリー
+       prefecture: 都道府県
+       item_status: 商品の状態 
+       ship_date: 発送までの日日
+       cost_burden: 配送負担
