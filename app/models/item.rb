@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 
   # PASSWORD_REGEX = [3-9][0-9]{2}|[1-9][0-9]{3,6}.freeze
   # 半角英数字
-  with_options presence: { message: "can't be blank" } do
+  with_options presence: true do
     validates :image
     validates :name, length: { maximum: 40 }
     validates :text, length: { maximum: 1000 }

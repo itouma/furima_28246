@@ -14,17 +14,17 @@ class User < ApplicationRecord
   # 全角文字のみ
   KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   # 全角カタカナのみ
-  with_options presence: { message: "can't be blank" } do
+  with_options presence: true do
     validates :nickname
     validates :birthday
-    with_options format: { with: HIRAGANA_KATAKANA_REGEX, message: 'Full-width characters' } do
+    with_options format: { with: HIRAGANA_KATAKANA_REGEX, message: :'Full-width characters' } do
       validates :first_name
       validates :family_name
     end
-    with_options format: { with: KATAKANA_REGEX, message: 'Full-width katakana characters' } do
+    with_options format: { with: KATAKANA_REGEX, message: :'Full-width katakana characters' } do
       validates :first_name_kana
       validates :family_name_kana
     end
   end
-  validates :password, format: { with: PASSWORD_REGEX, message: 'Include both letters and numbers' }
+  validates :password, format: { with: PASSWORD_REGEX, message: :'Include both letters and numbers' }
 end

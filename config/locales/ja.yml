@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        family_name: 姓
+        first_name: 名
+        family_name_kana: 姓カナ
+        first_name_kana: 名カナ
+        birthday: 生年月日
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        Full-width characters: を全角で入力してください
+        Full-width katakana characters: をカタカナの全角で入力してください
+        Include both letters and numbers: 半角英数字で入力してください
