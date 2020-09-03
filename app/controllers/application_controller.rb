@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  class MyLogger < Logger
+    include LoggerSilence
+    include ActiveSupport::LoggerThreadSafeLevel
+  end
   before_action :authenticate_user!
   before_action :basic_auth
 
