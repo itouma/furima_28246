@@ -26,13 +26,8 @@ ja:
         Full-width katakana characters: をカタカナの全角で入力してください
         Include both letters and numbers: 半角英数字で入力してください
         Select: を選択してください
-        Select: を選択してください
         Out of setting range: の範囲内で設定してください
-        is invalid. Include hyphen(-): ハイフンは不要です
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+        # is invalid. Include hyphen(-): ハイフンは不要です
   activemodel:
     attributes:
       purchase_shipping_address:
@@ -42,6 +37,13 @@ ja:
         city: 市区町村 
         city_number: 番地
         token: クレジット情報
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        のハイフンは不要です: のハイフンは不要です
+        のハイフンをつけてください: のハイフンをつけてください
+        Select: を選択してください
+
   date:
     abbr_day_names:
     - 日
