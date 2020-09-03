@@ -28,10 +28,20 @@ ja:
         Select: を選択してください
         Select: を選択してください
         Out of setting range: の範囲内で設定してください
+        is invalid. Include hyphen(-): ハイフンは不要です
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  activemodel:
+    attributes:
+      purchase_shipping_address:
+        postal_code: 郵便番号
+        phone_number: 電話番号
+        prefecture_id: 都道府県
+        city: 市区町村 
+        city_number: 番地
+        token: クレジット情報
   date:
     abbr_day_names:
     - 日

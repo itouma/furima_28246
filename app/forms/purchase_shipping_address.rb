@@ -12,8 +12,8 @@ class PurchaseShippingAddress
     validates :user_id, numericality: { only_integer: true }
     validates :item_id, numericality: { only_integer: true }
   end
-  with_options presence: { message: 'Select' } do
-    validates :prefecture_id, numericality: { greater_than: 0, message: 'Select' }
+  with_options presence: { message: :'Select' } do
+    validates :prefecture_id, numericality: { greater_than: 0, message: :'Select' }
   end
 
   def save
