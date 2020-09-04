@@ -47,6 +47,14 @@
           <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
+          <th class="detail-item">タグ</th>
+          <td class="detail-value">
+          <%# <% @item.tags.each do |tag|%>
+            <%# #<%=tag.tagnoname %>
+            <%# <%end%>
+          </td>
+        </tr>
+        <tr>
           <th class="detail-item">商品の状態</th>
           <td class="detail-value"><%= @item.item_status.name %></td>
         </tr>
