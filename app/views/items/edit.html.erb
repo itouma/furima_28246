@@ -44,7 +44,7 @@ app/assets/stylesheets/items/new.css %>
         タグ名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :tagnoname, class:"items-text", id:"item-tagnoname", placeholder:"タグ名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area (:tagnoname,@item.tags), class:"items-text", id:"item-tagnoname", placeholder:"タグ名（必須 40文字まで)", maxlength:"40" %>
     </div>
     <%# /商品名と商品説明 %>
 
